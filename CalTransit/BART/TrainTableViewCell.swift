@@ -11,6 +11,9 @@ import UIKit
 class TrainTableViewCell: UITableViewCell {
 
     @IBOutlet weak var directionLabel: UILabel!
+    @IBOutlet weak var arrivingInLabel: UILabel!
+    @IBOutlet weak var platformLabel: UILabel!
+    @IBOutlet weak var bikesLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

@@ -12,14 +12,19 @@ import SwiftyJSON
 
 let BARTAPIKey = "ZMZB-5V9S-9W2T-DWE9"
 
-
-
 class BARTViewController: UITableViewController {
 
-    var upcomingTrains = [String]()
-    
+    var upcomingTrains: JSON!
+    private let refresh = UIRefreshControl()
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.tableView.refreshControl = refresh
+        refresh.addTarget(self, action: #selector(BARTViewController.refreshUpcomingTrains), for: .valueChanged)
+        refresh.backgroundColor = UIColor.gray
+        refresh.tintColor = UIColor.white
+        
         refreshUpcomingTrains()
     }
 
@@ -29,31 +34,22 @@ class BARTViewController: UITableViewController {
     }
     
     //Function requests upcoming trains for DBRK station via Alamofire
-    func refreshUpcomingTrains(){
+    @objc func refreshUpcomingTrains(){
         print("Refreshing trains for DBRK")
         Alamofire.request("http://api.bart.gov/api/etd.aspx?cmd=etd&orig=DBRK&key=\(BARTAPIKey)&json=y").responseJSON { response in
             switch response.result {
             case .success(let value):
                 let json = JSON(value)
-                let est = json["root"]["station"][0]["etd"]
-                //print(est.rawString())
-                self.updateTrainTable(j: est.rawString()!)
+                self.upcomingTrains = json["root"]["station"][0]["etd"]
+                self.tableView.reloadData()
+                self.refresh.endRefreshing()
                 
             case .failure(let error):
                 print(error)
+                self.refresh.endRefreshing()
+
             }
         }
-    }
-    
-    func updateTrainTable(j: String){
-        let json = JSON(parseJSON: j)
-        //print(json)
-        for i in 0 ..< json.count{
-            let s = json[i]["destination"].rawString()!
-            print(s)
-            upcomingTrains.append(s)
-        }
-        self.tableView.reloadData()
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -90,7 +86,16 @@ class BARTViewController: UITableViewController {
         }
         else { //upcoming train cell
             let cell:TrainTableViewCell = self.tableView.dequeueReusableCell(withIdentifier:"trainCell", for: indexPath) as! TrainTableViewCell
-            cell.directionLabel.text = upcomingTrains[indexPath.row]
+            cell.directionLabel.text = "Towards " + upcomingTrains[indexPath.row]["destination"].stringValue
+            let arrivalMessage = upcomingTrains[indexPath.row]["estimate"][0]["length"].stringValue + " car train arriving in " + upcomingTrains[indexPath.row]["estimate"][0]["minutes"].stringValue + " minutes"
+            cell.arrivingInLabel.text = arrivalMessage
+            cell.platformLabel.text = "Use Platform " + upcomingTrains[indexPath.row]["estimate"][0]["platform"].stringValue
+            if(upcomingTrains[indexPath.row]["estimate"][0]["bikeflag"].intValue == 1){
+                cell.bikesLabel.text = "Bikes are allowed"
+            }
+            else{
+                cell.bikesLabel.text = "Bikes are not allowed"
+            }
             return cell
         }
     }
@@ -109,7 +114,16 @@ class BARTViewController: UITableViewController {
             }
         }
         else{
-            return 100
+            return 133
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        switch section{
+        case 1:
+            return "Upcoming Trains"
+        default:
+            return ""
         }
     }
 

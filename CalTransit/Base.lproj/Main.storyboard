@@ -70,11 +70,12 @@
         <scene sceneID="NYG-M8-d0S">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="nKg-nY-Mci" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="BART" image="first" id="acW-dT-cKf"/>
+                    <tabBarItem key="tabBarItem" title="BART" image="bartLogo" id="acW-dT-cKf"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="xnY-Lz-8TO">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -162,26 +163,57 @@
                                 <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="trainCell" rowHeight="138" id="DRZ-8J-INn" customClass="TrainTableViewCell" customModule="CalTransit" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="175.5" width="375" height="138"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="trainCell" rowHeight="133" id="DRZ-8J-INn" customClass="TrainTableViewCell" customModule="CalTransit" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="175.5" width="375" height="133"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="DRZ-8J-INn" id="iu0-Cx-YK9">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="138"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="133"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Dir" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RiY-g3-adU">
-                                            <rect key="frame" x="8" y="8" width="22" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dir" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RiY-g3-adU">
+                                            <rect key="frame" x="8" y="8" width="359" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="21" id="07v-Rw-dq4"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fdi-th-ZWk">
+                                            <rect key="frame" x="45" y="37" width="322" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pA9-Sl-6Bg">
+                                            <rect key="frame" x="45" y="66" width="322" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6RW-a7-whn">
+                                            <rect key="frame" x="45" y="95" width="322" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="RiY-g3-adU" firstAttribute="top" secondItem="iu0-Cx-YK9" secondAttribute="topMargin" id="C3P-Ld-eUr"/>
+                                        <constraint firstItem="RiY-g3-adU" firstAttribute="trailing" secondItem="iu0-Cx-YK9" secondAttribute="trailingMargin" id="pql-8A-RQy"/>
+                                        <constraint firstItem="RiY-g3-adU" firstAttribute="leading" secondItem="iu0-Cx-YK9" secondAttribute="leadingMargin" id="vil-E3-hBS"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <connections>
+                                    <outlet property="arrivingInLabel" destination="fdi-th-ZWk" id="kRu-53-jlL"/>
+                                    <outlet property="bikesLabel" destination="6RW-a7-whn" id="uEy-zu-pM6"/>
                                     <outlet property="directionLabel" destination="RiY-g3-adU" id="P8M-8P-tbT"/>
+                                    <outlet property="platformLabel" destination="pA9-Sl-6Bg" id="6oc-fv-Sbg"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -201,11 +233,12 @@
         <scene sceneID="PjD-Wl-iam">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="LKW-4g-5e5" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="AC Transit" image="second" id="cPa-gy-q4n"/>
+                    <tabBarItem key="tabBarItem" title="AC Transit" image="acTransitLogo" id="cPa-gy-q4n"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="fk1-cZ-Y7S">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.050980392156862744" green="0.5165022750998548" blue="0.3057331381626725" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -254,7 +287,8 @@
     </scenes>
     <resources>
         <image name="BARTImage" width="1280" height="720"/>
-        <image name="first" width="30" height="30"/>
+        <image name="acTransitLogo" width="237" height="137"/>
+        <image name="bartLogo" width="215" height="175"/>
         <image name="second" width="30" height="30"/>
     </resources>
 </document>
