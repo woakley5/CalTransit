@@ -9,8 +9,7 @@
 import UIKit
 import Alamofire
 import SwiftyJSON
-
-let BARTAPIKey = "ZMZB-5V9S-9W2T-DWE9"
+import MKSpinner
 
 class BARTViewController: UITableViewController {
 
@@ -26,6 +25,7 @@ class BARTViewController: UITableViewController {
         refresh.tintColor = UIColor.white
         
         refreshUpcomingTrains()
+        MKFullSpinner.show("Loading Trains...")
     }
 
     override func didReceiveMemoryWarning() {
@@ -35,39 +35,48 @@ class BARTViewController: UITableViewController {
     
     //Function requests upcoming trains for DBRK station via Alamofire
     @objc func refreshUpcomingTrains(){
+    
         print("Refreshing trains for DBRK")
-        Alamofire.request("http://api.bart.gov/api/etd.aspx?cmd=etd&orig=DBRK&key=\(BARTAPIKey)&json=y").responseJSON { response in
+        Alamofire.request("http://api.bart.gov/api/etd.aspx?cmd=etd&orig=DBRK&key=\(Constants.BARTAPIKey)&json=y").responseJSON { response in
             switch response.result {
             case .success(let value):
                 let json = JSON(value)
                 self.upcomingTrains = json["root"]["station"][0]["etd"]
                 self.tableView.reloadData()
                 self.refresh.endRefreshing()
+                MKFullSpinner.hide()
                 
             case .failure(let error):
                 print(error)
                 self.refresh.endRefreshing()
+                MKFullSpinner.hide()
 
             }
         }
     }
     
+    //Sets number of sections (Main section, upcoming trains and further options section)
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        return 3
     }
     
+    //Sets the number of rows in each section defined above
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if(section == 0){
-            return 3
+            return 3 //Always 3 cells in first section
+        }
+        else if(section == 2){
+            return 2
         }
         else if(upcomingTrains == nil){
-            return 0
+            return 0 //None in second if upcomingTrains JSON fails to update
         }
-        else{
-            return upcomingTrains.count
+        else {
+            return upcomingTrains.count //Updates to number of upcoming trains when JSON updates
         }
     }
     
+    //Defines all cells of the tableView
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if(indexPath.section == 0){
             switch indexPath.row{
@@ -84,22 +93,38 @@ class BARTViewController: UITableViewController {
                     return self.tableView.dequeueReusableCell(withIdentifier:"redCell", for: indexPath)
                 }
         }
-        else { //upcoming train cell
+        else if(indexPath.section == 1) { //upcoming train cell
             let cell:TrainTableViewCell = self.tableView.dequeueReusableCell(withIdentifier:"trainCell", for: indexPath) as! TrainTableViewCell
-            cell.directionLabel.text = "Towards " + upcomingTrains[indexPath.row]["destination"].stringValue
+            cell.directionLabel.text = upcomingTrains[indexPath.row]["destination"].stringValue + " bound train"
+            
             let arrivalMessage = upcomingTrains[indexPath.row]["estimate"][0]["length"].stringValue + " car train arriving in " + upcomingTrains[indexPath.row]["estimate"][0]["minutes"].stringValue + " minutes"
             cell.arrivingInLabel.text = arrivalMessage
+            
             cell.platformLabel.text = "Use Platform " + upcomingTrains[indexPath.row]["estimate"][0]["platform"].stringValue
+            
             if(upcomingTrains[indexPath.row]["estimate"][0]["bikeflag"].intValue == 1){
                 cell.bikesLabel.text = "Bikes are allowed"
             }
             else{
                 cell.bikesLabel.text = "Bikes are not allowed"
             }
+            
+            cell.coloredBackgroundView.backgroundColor = Constants.hexStringToUIColor(hex: upcomingTrains[indexPath.row]["estimate"][0]["hexcolor"].stringValue)
             return cell
+        }
+        else{
+            switch indexPath.row{
+            case 0:
+                let cell = self.tableView.dequeueReusableCell(withIdentifier:"otherStationsCell", for: indexPath)
+                return cell
+            default:
+                let cell = self.tableView.dequeueReusableCell(withIdentifier:"tripPlannerCell", for: indexPath)
+                return cell
+            }
         }
     }
     
+    //Returns heights of each cell - Static for section 1 cells and universal for section 2
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if(indexPath.section == 0){
             switch indexPath.row{
@@ -113,20 +138,26 @@ class BARTViewController: UITableViewController {
                 return 0
             }
         }
+        else if(indexPath.section == 1){
+            return 135
+        }
         else{
-            return 133
+            return 44
         }
     }
     
+    //Gives titles of each section
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         switch section{
         case 1:
             return "Upcoming Trains"
+        case 2:
+            return "Other Tools"
         default:
             return ""
         }
     }
-
+    
 
 }
 

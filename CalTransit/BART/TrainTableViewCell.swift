@@ -14,10 +14,14 @@ class TrainTableViewCell: UITableViewCell {
     @IBOutlet weak var arrivingInLabel: UILabel!
     @IBOutlet weak var platformLabel: UILabel!
     @IBOutlet weak var bikesLabel: UILabel!
+    @IBOutlet weak var coloredBackgroundView: UIView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
+    
+    
+    
 
 }

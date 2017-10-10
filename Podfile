@@ -10,7 +10,8 @@ target 'CalTransit' do
   # Pods for CalTransit
   pod 'Alamofire'
   pod 'SwiftyJSON'
-
+  pod 'MKSpinner'
+  
   target 'CalTransitTests' do
     inherit! :search_paths
     # Pods for testing
