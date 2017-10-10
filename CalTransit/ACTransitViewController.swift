@@ -1,5 +1,5 @@
 //
-//  FirstViewController.swift
+//  SecondViewController.swift
 //  CalTransit
 //
 //  Created by Will Oakley on 10/9/17.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FirstViewController: UIViewController {
+class SecondViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
