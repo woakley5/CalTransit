@@ -20,8 +20,4 @@ class TrainTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
     }
-    
-    
-    
-
 }

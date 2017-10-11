@@ -30,15 +30,10 @@ class TripPlannerSelectViewController: UIViewController, UIPickerViewDelegate, U
         departPicker.dataSource = self
         arrivePicker.delegate = self
         arrivePicker.dataSource = self
+        datePicker.minimumDate = Date()
         updatePickerViews()
-        // Do any additional setup after loading the view.
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
     func updatePickerViews(){
         MKFullSpinner.show("Loading Stations...")
         stationNames.removeAll()
@@ -114,6 +109,4 @@ class TripPlannerSelectViewController: UIViewController, UIPickerViewDelegate, U
             destinationViewController.time = timeFormatter.string(from: datePicker.date)
         }
     }
-    
-
 }

@@ -157,7 +157,4 @@ class BARTViewController: UITableViewController {
             return ""
         }
     }
-    
-
 }
-

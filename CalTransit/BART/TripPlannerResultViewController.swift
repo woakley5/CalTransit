@@ -45,7 +45,7 @@ class TripPlannerResultViewController: UITableViewController {
             case .failure(let error):
                 print(error)
                 MKFullSpinner.hide()
-                
+                // TODO: Implement error handling
             }
         }
         
@@ -58,9 +58,4 @@ class TripPlannerResultViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 0
     }
-
-    
-
-    // MARK: - Table view data source
-
 }
