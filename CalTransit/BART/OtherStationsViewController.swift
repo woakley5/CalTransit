@@ -25,7 +25,7 @@ class OtherStationsViewController: UIViewController, UITableViewDelegate, UITabl
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.title = "Other Stations"
+        //self.navigationItem.title = "Other Stations"
         stationPicker.delegate = self
         stationPicker.dataSource = self
         tableView.delegate = self
@@ -153,4 +153,8 @@ class OtherStationsViewController: UIViewController, UITableViewDelegate, UITabl
         return "Upcoming Trains"
     }
 
+    @IBAction func refreshStationData(_ sender: Any) {
+        getStationInfo(stationCode: stationCodes[stationPicker.selectedRow(inComponent: 0)])
+        MKFullSpinner.show("Loading Trains...")
+    }
 }

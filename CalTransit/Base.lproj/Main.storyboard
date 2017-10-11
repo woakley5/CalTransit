@@ -14,7 +14,7 @@
         <!--AC Transit-->
         <scene sceneID="wg7-f3-ORb">
             <objects>
-                <viewController id="8rJ-Kc-sve" sceneMemberID="viewController">
+                <viewController id="8rJ-Kc-sve" customClass="ACTransitViewController" customModule="CalTransit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="QS5-Rx-YEW">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -257,7 +257,7 @@
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
-                                    <segue destination="CBG-YN-U3Y" kind="show" id="1Tr-xT-P0z"/>
+                                    <segue destination="CBG-YN-U3Y" kind="push" id="1Tr-xT-P0z"/>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="tripPlannerCell" textLabel="tjR-8o-ntt" style="IBUITableViewCellStyleDefault" id="z7y-zp-vwU" customClass="TrainTableViewCell" customModule="CalTransit" customModuleProvider="target">
@@ -293,7 +293,7 @@
             </objects>
             <point key="canvasLocation" x="1488.8" y="-321.58920539730138"/>
         </scene>
-        <!--Other Stations View Controller-->
+        <!--Other Stations-->
         <scene sceneID="y6A-gV-CTu">
             <objects>
                 <viewController id="CBG-YN-U3Y" customClass="OtherStationsViewController" customModule="CalTransit" customModuleProvider="target" sceneMemberID="viewController">
@@ -413,6 +413,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="NRQ-uN-FqX"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Other Stations" id="EXt-4C-24p">
+                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="HI9-AA-JoR">
+                            <connections>
+                                <action selector="refreshStationData:" destination="CBG-YN-U3Y" id="cCr-rN-RQ5"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="stationMap" destination="gu1-dK-WG5" id="9Rc-bP-r8v"/>
                         <outlet property="stationPicker" destination="mqD-ta-y8e" id="ycG-Jv-u2W"/>
@@ -465,7 +472,7 @@
         <!--BearTransit-->
         <scene sceneID="G9h-ya-JNs">
             <objects>
-                <viewController id="ksx-WE-UPp" sceneMemberID="viewController">
+                <viewController id="ksx-WE-UPp" customClass="BearTransitViewController" customModule="CalTransit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5CP-B8-Zxe">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

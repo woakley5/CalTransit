@@ -1,5 +1,5 @@
 //
-//  SecondViewController.swift
+//  ACTransitViewController.swift
 //  CalTransit
 //
 //  Created by Will Oakley on 10/9/17.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SecondViewController: UITableViewController {
+class ACTransitViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
