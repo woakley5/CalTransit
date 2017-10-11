@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		55D4D5E11168AC5491AE32FC /* Pods_CalTransitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59D8D71DB78B930E30C5D88E /* Pods_CalTransitTests.framework */; };
+		6C67268F1F8D988D00B9D5DF /* BearTransitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C67268E1F8D988D00B9D5DF /* BearTransitViewController.swift */; };
 		6C7BBD24EFF18D7C689B948F /* Pods_CalTransit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB45BF1B3E6609B820F5B5B6 /* Pods_CalTransit.framework */; };
 		6CC1DCAE1F8C7D0D003C21E2 /* TrainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CC1DCAD1F8C7D0D003C21E2 /* TrainTableViewCell.swift */; };
 		6CC2C5511F8C6B9F0067CFB3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CC2C5501F8C6B9F0067CFB3 /* AppDelegate.swift */; };
@@ -20,7 +21,6 @@
 		6CC2C5731F8C6BA00067CFB3 /* CalTransitUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CC2C5721F8C6BA00067CFB3 /* CalTransitUITests.swift */; };
 		6CDA4AE31F8D80F1000EBDEC /* OtherStationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CDA4AE21F8D80F1000EBDEC /* OtherStationsViewController.swift */; };
 		6CDA4AE51F8D8143000EBDEC /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CDA4AE41F8D8143000EBDEC /* Constants.swift */; };
-		6CDA4AE91F8D97AA000EBDEC /* BearTransitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CDA4AE81F8D97AA000EBDEC /* BearTransitViewController.swift */; };
 		E218E38F85B8963AEFEDE27F /* Pods_CalTransitUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC1C969205E32E98493C951B /* Pods_CalTransitUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -47,6 +47,7 @@
 		4FB6CDA59E95A22EEE453481 /* Pods-CalTransitUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CalTransitUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CalTransitUITests/Pods-CalTransitUITests.release.xcconfig"; sourceTree = "<group>"; };
 		59D8D71DB78B930E30C5D88E /* Pods_CalTransitTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CalTransitTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		59D99616B51F748302507E35 /* Pods-CalTransit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CalTransit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CalTransit/Pods-CalTransit.debug.xcconfig"; sourceTree = "<group>"; };
+		6C67268E1F8D988D00B9D5DF /* BearTransitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BearTransitViewController.swift; path = "CalTransit/Bear Transit/BearTransitViewController.swift"; sourceTree = "<group>"; };
 		6CC1DCAD1F8C7D0D003C21E2 /* TrainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainTableViewCell.swift; sourceTree = "<group>"; };
 		6CC2C54D1F8C6B9F0067CFB3 /* CalTransit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CalTransit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6CC2C5501F8C6B9F0067CFB3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -64,7 +65,6 @@
 		6CC2C5741F8C6BA00067CFB3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6CDA4AE21F8D80F1000EBDEC /* OtherStationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherStationsViewController.swift; sourceTree = "<group>"; };
 		6CDA4AE41F8D8143000EBDEC /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		6CDA4AE81F8D97AA000EBDEC /* BearTransitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BearTransitViewController.swift; sourceTree = "<group>"; };
 		A5DE1D7931E51598A3D3D818 /* Pods-CalTransitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CalTransitTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CalTransitTests/Pods-CalTransitTests.debug.xcconfig"; sourceTree = "<group>"; };
 		CB45BF1B3E6609B820F5B5B6 /* Pods_CalTransit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CalTransit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC1C969205E32E98493C951B /* Pods_CalTransitUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CalTransitUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -99,6 +99,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6C67268D1F8D986B00B9D5DF /* Bear Transit */ = {
+			isa = PBXGroup;
+			children = (
+				6C67268E1F8D988D00B9D5DF /* BearTransitViewController.swift */,
+			);
+			name = "Bear Transit";
+			path = ..;
+			sourceTree = "<group>";
+		};
 		6CC1DCAF1F8C7D14003C21E2 /* BART */ = {
 			isa = PBXGroup;
 			children = (
@@ -138,7 +147,7 @@
 				6CDA4AE41F8D8143000EBDEC /* Constants.swift */,
 				6CC1DCAF1F8C7D14003C21E2 /* BART */,
 				6CDA4AE61F8D9754000EBDEC /* AC Transit */,
-				6CDA4AE71F8D978D000EBDEC /* BearTransit */,
+				6C67268D1F8D986B00B9D5DF /* Bear Transit */,
 				6CC2C5561F8C6B9F0067CFB3 /* Main.storyboard */,
 				6CC2C55B1F8C6B9F0067CFB3 /* LaunchScreen.storyboard */,
 				6CC2C5591F8C6B9F0067CFB3 /* Assets.xcassets */,
@@ -171,15 +180,6 @@
 				6CC2C5541F8C6B9F0067CFB3 /* ACTransitViewController.swift */,
 			);
 			path = "AC Transit";
-			sourceTree = "<group>";
-		};
-		6CDA4AE71F8D978D000EBDEC /* BearTransit */ = {
-			isa = PBXGroup;
-			children = (
-				6CDA4AE81F8D97AA000EBDEC /* BearTransitViewController.swift */,
-			);
-			name = BearTransit;
-			path = ..;
 			sourceTree = "<group>";
 		};
 		B68FB1A48209FFF224CBA7A4 /* Frameworks */ = {
@@ -490,7 +490,7 @@
 				6CC2C5551F8C6B9F0067CFB3 /* ACTransitViewController.swift in Sources */,
 				6CC2C5511F8C6B9F0067CFB3 /* AppDelegate.swift in Sources */,
 				6CDA4AE31F8D80F1000EBDEC /* OtherStationsViewController.swift in Sources */,
-				6CDA4AE91F8D97AA000EBDEC /* BearTransitViewController.swift in Sources */,
+				6C67268F1F8D988D00B9D5DF /* BearTransitViewController.swift in Sources */,
 				6CC2C5531F8C6B9F0067CFB3 /* BARTViewController.swift in Sources */,
 				6CDA4AE51F8D8143000EBDEC /* Constants.swift in Sources */,
 			);
