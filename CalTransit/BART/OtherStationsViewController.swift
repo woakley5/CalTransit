@@ -42,6 +42,7 @@ class OtherStationsViewController: UIViewController, UITableViewDelegate, UITabl
     
 
     func updatePickerView(){
+        MKFullSpinner.show("Loading Stations...")
         stationNames.removeAll()
         stationCodes.removeAll()
         stationLocations.removeAll()
@@ -57,9 +58,12 @@ class OtherStationsViewController: UIViewController, UITableViewDelegate, UITabl
                 }
                 self.stationPicker.reloadAllComponents()
                 self.pickerView(self.stationPicker, didSelectRow: 0, inComponent: 0)
+                MKFullSpinner.hide()
                 
             case .failure(let error):
                 print(error)
+                MKFullSpinner.hide()
+
             }
         }
     }
