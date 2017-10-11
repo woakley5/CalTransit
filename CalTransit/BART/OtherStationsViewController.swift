@@ -107,6 +107,7 @@ class OtherStationsViewController: UIViewController, UITableViewDelegate, UITabl
     }
     
     //Table View delegate methods
+    
     //Sets number of sections (Main section, upcoming trains and further options section)
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -152,6 +153,7 @@ class OtherStationsViewController: UIViewController, UITableViewDelegate, UITabl
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return "Upcoming Trains"
     }
+    //-------------------------------------
 
     @IBAction func refreshStationData(_ sender: Any) {
         getStationInfo(stationCode: stationCodes[stationPicker.selectedRow(inComponent: 0)])
