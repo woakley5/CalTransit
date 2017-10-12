@@ -13,6 +13,8 @@ class Constants{
     
     static let BARTAPIKey = "ZMZB-5V9S-9W2T-DWE9"
     
+    static var stationInfo = [String: String]()
+    
     //Converts bart hex color to UIColor
     static func hexStringToUIColor (hex:String) -> UIColor {
         var cString:String = hex.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
