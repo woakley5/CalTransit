@@ -10,11 +10,10 @@ import UIKit
 
 class TripSegmentTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var originLabel: UILabel!
-    @IBOutlet weak var destinationLabel: UILabel!
+    @IBOutlet weak var routeLabel: UILabel!
     @IBOutlet weak var departTimeLabel: UILabel!
     @IBOutlet weak var arriveTimeLabel: UILabel!
-    @IBOutlet weak var trainInfoLabel: UILabel!
+    @IBOutlet weak var background: UIView!
     
     override func awakeFromNib() {
         super.awakeFromNib()

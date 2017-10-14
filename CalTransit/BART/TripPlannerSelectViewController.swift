@@ -54,6 +54,8 @@ class TripPlannerSelectViewController: UIViewController, UIPickerViewDelegate, U
                 }
                 self.departPicker.reloadAllComponents()
                 self.arrivePicker.reloadAllComponents()
+                self.departPicker.selectRow(0, inComponent: 0, animated: false)
+                self.arrivePicker.selectRow(0, inComponent: 0, animated: false)
                 self.pickerView(self.departPicker, didSelectRow: 0, inComponent: 0)
                 self.pickerView(self.arrivePicker, didSelectRow: 0, inComponent: 0)
                 MKFullSpinner.hide()
@@ -61,7 +63,7 @@ class TripPlannerSelectViewController: UIViewController, UIPickerViewDelegate, U
             case .failure(let error):
                 print(error)
                 MKFullSpinner.hide()
-                
+                //Add error handling/no trips found
             }
         }
     }
