@@ -169,7 +169,7 @@ class TripPlannerResultViewController: UITableViewController {
         cell.tripTimeLabel.text = "Total Trip Time: " + self.tripInfo["root"]["schedule"]["request"]["trip"][0]["@tripTime"].stringValue + " minutes"
         cell.cashFareLabel.text = "Normal Fare: $" + self.tripInfo["root"]["schedule"]["request"]["trip"][0]["@fare"].stringValue
         cell.clipperFareLabel.text = "Clipper Fare: $" + self.tripInfo["root"]["schedule"]["request"]["trip"][0]["@clipper"].stringValue
-        cell.co2EmissionsLabel.text = "You will save " + self.tripInfo["root"]["schedule"]["request"]["trip"][0]["@co2"].stringValue + " lbs of C02 emissions with this trip."
+        cell.co2EmissionsLabel.text = "This trip will save " + self.tripInfo["root"]["schedule"]["request"]["trip"][0]["@co2"].stringValue + " lbs of C02!"
         return cell
     }
     
