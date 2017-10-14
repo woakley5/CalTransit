@@ -41,6 +41,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
+    
+    func application(_ application: UIApplication, performActionFor shortcutItem: UIApplicationShortcutItem, completionHandler: @escaping (Bool) -> Void) {
+        let tabBar = self.window!.rootViewController as! UITabBarController
+
+        if(shortcutItem.type == "woakley.CalTransit.showBARTTab"){
+            tabBar.selectedIndex = 0
+        }
+        if(shortcutItem.type == "woakley.CalTransit.showACTransitTab"){
+            tabBar.selectedIndex = 1
+        }
+        if(shortcutItem.type == "woakley.CalTransit.showBearTransitTab"){
+            tabBar.selectedIndex = 2
+        }
+    }
 
 
 }

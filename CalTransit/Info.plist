@@ -2,6 +2,27 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>UIApplicationShortcutItems</key>
+	<array>
+		<dict>
+			<key>UIApplicationShortcutItemTitle</key>
+			<string>BART</string>
+			<key>UIApplicationShortcutItemType</key>
+			<string>woakley.CalTransit.showBARTTab</string>
+		</dict>
+		<dict>
+			<key>UIApplicationShortcutItemTitle</key>
+			<string>AC Transit</string>
+			<key>UIApplicationShortcutItemType</key>
+			<string>woakley.CalTransit.showACTransitTab</string>
+		</dict>
+		<dict>
+			<key>UIApplicationShortcutItemType</key>
+			<string>woakley.CalTransit.showBearTransitTab</string>
+			<key>UIApplicationShortcutItemTitle</key>
+			<string>Bear Transit</string>
+		</dict>
+	</array>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleExecutable</key>
