@@ -28,7 +28,7 @@ class TripPlannerResultViewController: UITableViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        self.navigationItem.title = Constants.stationInfo[departureCode!]! + " - " + Constants.stationInfo[arrivalCode!]!
+        self.navigationItem.title = Constants.BARTstationInfo[departureCode!]! + " - " + Constants.BARTstationInfo[arrivalCode!]!
         searchForTrip()
     }
     
@@ -132,9 +132,9 @@ class TripPlannerResultViewController: UITableViewController {
     func generateLegCell(legNum: Int, path: IndexPath) -> UITableViewCell {
         print("Leg Num " + String(legNum))
         let cell:TripSegmentTableViewCell = self.tableView.dequeueReusableCell(withIdentifier:"tripLegCell", for: path) as! TripSegmentTableViewCell
-        cell.routeLabel.text = Constants.stationInfo[legs[legNum]["@origin"].stringValue]! + " -> " + Constants.stationInfo[legs[legNum]["@destination"].stringValue]!
+        cell.routeLabel.text = Constants.BARTstationInfo[legs[legNum]["@origin"].stringValue]! + " -> " + Constants.BARTstationInfo[legs[legNum]["@destination"].stringValue]!
         if(path.row == 0){
-            self.transferStation = Constants.stationInfo[legs[legNum]["@destination"].stringValue]!
+            self.transferStation = Constants.BARTstationInfo[legs[legNum]["@destination"].stringValue]!
         }
         cell.departTimeLabel.text = legs[legNum]["@origTimeMin"].stringValue
         cell.arriveTimeLabel.text = legs[legNum]["@destTimeMin"].stringValue

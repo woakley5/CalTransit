@@ -11,9 +11,13 @@ import UIKit
 
 class Constants{
     
+    //BART Stuff
     static let BARTAPIKey = "ZMZB-5V9S-9W2T-DWE9"
+    static var BARTstationInfo = [String: String]()
     
-    static var stationInfo = [String: String]()
+    //AC Transit Stuff
+    static let ACTransitAPIKey = "E8B5BCE12863B6FF772C0D59FB2843AF"
+    static var ACTransitStopInfo = [String: String]()
     
     //Converts bart hex color to UIColor
     static func hexStringToUIColor (hex:String) -> UIColor {

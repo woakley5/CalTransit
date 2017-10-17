@@ -46,11 +46,11 @@ class TripPlannerSelectViewController: UIViewController, UIPickerViewDelegate, U
             switch response.result {
             case .success(let value):
                 let json = JSON(value)
-                Constants.stationInfo.removeAll()
+                Constants.BARTstationInfo.removeAll()
                 for (key ,subJson) in json["root"]["stations"]["station"] {
                     self.stationNames.append(subJson["name"].stringValue)
                     self.stationCodes.append(subJson["abbr"].stringValue)
-                    Constants.stationInfo.updateValue(subJson["name"].stringValue, forKey: subJson["abbr"].stringValue)
+                    Constants.BARTstationInfo.updateValue(subJson["name"].stringValue, forKey: subJson["abbr"].stringValue)
                 }
                 self.departPicker.reloadAllComponents()
                 self.arrivePicker.reloadAllComponents()

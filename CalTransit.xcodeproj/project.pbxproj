@@ -24,6 +24,7 @@
 		6CC2C55D1F8C6B9F0067CFB3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6CC2C55B1F8C6B9F0067CFB3 /* LaunchScreen.storyboard */; };
 		6CC2C5681F8C6BA00067CFB3 /* CalTransitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CC2C5671F8C6BA00067CFB3 /* CalTransitTests.swift */; };
 		6CC2C5731F8C6BA00067CFB3 /* CalTransitUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CC2C5721F8C6BA00067CFB3 /* CalTransitUITests.swift */; };
+		6CD55FE91F96B35900D9BE36 /* SproulPlazaLocation.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 6CD55FE81F96B35900D9BE36 /* SproulPlazaLocation.gpx */; };
 		6CDA4AE31F8D80F1000EBDEC /* OtherStationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CDA4AE21F8D80F1000EBDEC /* OtherStationsViewController.swift */; };
 		6CDA4AE51F8D8143000EBDEC /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CDA4AE41F8D8143000EBDEC /* Constants.swift */; };
 		E218E38F85B8963AEFEDE27F /* Pods_CalTransitUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC1C969205E32E98493C951B /* Pods_CalTransitUITests.framework */; };
@@ -73,6 +74,7 @@
 		6CC2C56E1F8C6BA00067CFB3 /* CalTransitUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CalTransitUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6CC2C5721F8C6BA00067CFB3 /* CalTransitUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalTransitUITests.swift; sourceTree = "<group>"; };
 		6CC2C5741F8C6BA00067CFB3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6CD55FE81F96B35900D9BE36 /* SproulPlazaLocation.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = SproulPlazaLocation.gpx; sourceTree = "<group>"; };
 		6CDA4AE21F8D80F1000EBDEC /* OtherStationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherStationsViewController.swift; sourceTree = "<group>"; };
 		6CDA4AE41F8D8143000EBDEC /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		A5DE1D7931E51598A3D3D818 /* Pods-CalTransitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CalTransitTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CalTransitTests/Pods-CalTransitTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -167,6 +169,7 @@
 				6CC2C55B1F8C6B9F0067CFB3 /* LaunchScreen.storyboard */,
 				6CC2C5591F8C6B9F0067CFB3 /* Assets.xcassets */,
 				6CC2C55E1F8C6B9F0067CFB3 /* Info.plist */,
+				6CD55FE81F96B35900D9BE36 /* SproulPlazaLocation.gpx */,
 			);
 			path = CalTransit;
 			sourceTree = "<group>";
@@ -338,6 +341,7 @@
 			files = (
 				6CC2C55D1F8C6B9F0067CFB3 /* LaunchScreen.storyboard in Resources */,
 				6CC2C55A1F8C6B9F0067CFB3 /* Assets.xcassets in Resources */,
+				6CD55FE91F96B35900D9BE36 /* SproulPlazaLocation.gpx in Resources */,
 				6CC2C5581F8C6B9F0067CFB3 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -11,6 +11,7 @@ target 'CalTransit' do
   pod 'Alamofire'
   pod 'SwiftyJSON'
   pod 'MKSpinner'
+  pod 'SwiftBus'
   
   target 'CalTransitTests' do
     inherit! :search_paths

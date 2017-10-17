@@ -5,7 +5,7 @@
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -410,7 +410,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="d5N-Fn-hh7" kind="relationship" relationship="rootViewController" id="ynX-MX-NQF"/>
+                        <segue destination="QRb-gj-AKG" kind="relationship" relationship="rootViewController" id="hl7-1J-rqk"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="onl-05-g8t" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -418,33 +418,34 @@
             <point key="canvasLocation" x="748.79999999999995" y="359.82008995502252"/>
         </scene>
         <!--AC Transit-->
-        <scene sceneID="S3g-g0-pI4">
+        <scene sceneID="acq-y4-54k">
             <objects>
-                <tableViewController id="d5N-Fn-hh7" customClass="ACTransitViewController" customModule="CalTransit" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="r9Z-8o-c06">
+                <viewController id="QRb-gj-AKG" customClass="ACTransitViewController" customModule="CalTransit" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="R2m-qL-ZWa">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" showsPointsOfInterest="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lNF-Th-35z">
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                            </mapView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="Vnf-zW-YbH">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Vnf-zW-YbH" id="3UI-s9-Ovv">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="d5N-Fn-hh7" id="SBZ-Pw-lQ7"/>
-                            <outlet property="delegate" destination="d5N-Fn-hh7" id="7Rq-Ef-ZlW"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="AC Transit" id="DVQ-xe-4v0"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="YYh-zT-Wip" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                        <constraints>
+                            <constraint firstItem="lNF-Th-35z" firstAttribute="bottom" secondItem="c9j-wY-e30" secondAttribute="bottom" id="0ZR-8S-r9n"/>
+                            <constraint firstItem="lNF-Th-35z" firstAttribute="top" secondItem="c9j-wY-e30" secondAttribute="top" id="IWl-Dd-Pec"/>
+                            <constraint firstItem="lNF-Th-35z" firstAttribute="leading" secondItem="c9j-wY-e30" secondAttribute="leading" id="ZoF-87-V0P"/>
+                            <constraint firstItem="lNF-Th-35z" firstAttribute="trailing" secondItem="c9j-wY-e30" secondAttribute="trailing" id="s8l-Bg-1Nf"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="c9j-wY-e30"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="AC Transit" id="2qa-jt-ig7"/>
+                    <connections>
+                        <outlet property="mapView" destination="lNF-Th-35z" id="fmQ-y2-srE"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="adL-Tz-iL5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1489" y="359"/>
+            <point key="canvasLocation" x="1488.8" y="357.57121439280365"/>
         </scene>
         <!--BearTransit-->
         <scene sceneID="iPC-Zl-NZs">

@@ -1,18 +1,24 @@
 PODS:
   - Alamofire (4.5.1)
   - MKSpinner (1.4)
+  - SwiftBus (1.5):
+    - SWXMLHash (~> 4.0.0)
   - SwiftyJSON (3.1.4)
+  - SWXMLHash (4.0.0)
 
 DEPENDENCIES:
   - Alamofire
   - MKSpinner
+  - SwiftBus
   - SwiftyJSON
 
 SPEC CHECKSUMS:
   Alamofire: 2d95912bf4c34f164fdfc335872e8c312acaea4a
   MKSpinner: 342cc7f8fbb365dd139a8ad28a0a987cca440a3a
+  SwiftBus: e2aa26355c821a9998efafcd925fc7c688fdf4bd
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
+  SWXMLHash: 6bbc0bf72975a18ceda469fb7d6a886a26d81694
 
-PODFILE CHECKSUM: afcac68b65069a08dd6bd99f92d6d9eab0b35450
+PODFILE CHECKSUM: 330a315eef99d4c2f4dc52f31ee6a25dd57571dd
 
 COCOAPODS: 1.2.0
