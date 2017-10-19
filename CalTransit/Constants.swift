@@ -16,7 +16,7 @@ class Constants{
     static var BARTstationInfo = [String: String]()
     
     //AC Transit Stuff
-    static let ACTransitAPIKey = "E8B5BCE12863B6FF772C0D59FB2843AF"
+    static let ACTransitAPIKey = "FF2AA022BCE64E2605DDA817CB624012"
     static var ACTransitStopInfo = [String: String]()
     
     //Converts bart hex color to UIColor
