@@ -11,6 +11,11 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="AvenirNext.ttc">
+            <string>AvenirNext-Bold</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
@@ -427,7 +432,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" showsPointsOfInterest="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lNF-Th-35z">
-                                <rect key="frame" x="0.0" y="64" width="375" height="510"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                             </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -439,15 +444,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="c9j-wY-e30"/>
                     </view>
-                    <toolbarItems/>
                     <navigationItem key="navigationItem" title="AC Transit" id="2qa-jt-ig7">
-                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="tFj-EM-91t">
+                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="V6V-52-UIw">
                             <connections>
-                                <action selector="refreshStops:" destination="QRb-gj-AKG" id="KkR-Be-pn1"/>
+                                <action selector="refreshStops:" destination="QRb-gj-AKG" id="Jna-Mt-hzw"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="mapView" destination="lNF-Th-35z" id="fmQ-y2-srE"/>
                     </connections>
@@ -612,17 +615,26 @@
                                             <rect key="frame" x="8" y="10" width="359" height="119"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ROUTE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ekb-4m-xGK">
-                                                    <rect key="frame" x="8" y="8" width="343" height="21"/>
+                                                    <rect key="frame" x="8" y="8" width="343" height="30"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Depart" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="He8-Q6-AXH">
-                                                    <rect key="frame" x="8" y="49" width="172" height="21"/>
+                                                    <rect key="frame" x="8" y="58" width="170" height="44"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="172" id="FhQ-n4-0a7"/>
+                                                        <constraint firstAttribute="width" constant="170" id="FhQ-n4-0a7"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="32"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Arrive" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cet-pT-ock">
+                                                    <rect key="frame" x="181" y="58" width="170" height="44"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="170" id="N4X-45-zUM"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="32"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -631,12 +643,16 @@
                                             <constraints>
                                                 <constraint firstItem="Ekb-4m-xGK" firstAttribute="leading" secondItem="He8-Q6-AXH" secondAttribute="leading" id="2Ou-1W-uBk"/>
                                                 <constraint firstItem="Ekb-4m-xGK" firstAttribute="top" secondItem="KDU-k5-Kih" secondAttribute="topMargin" id="DlC-jn-ZaE"/>
-                                                <constraint firstItem="He8-Q6-AXH" firstAttribute="centerY" secondItem="KDU-k5-Kih" secondAttribute="centerY" id="EyT-A5-duw"/>
+                                                <constraint firstItem="He8-Q6-AXH" firstAttribute="centerY" secondItem="KDU-k5-Kih" secondAttribute="centerY" constant="20.5" id="EyT-A5-duw"/>
                                                 <constraint firstItem="Ekb-4m-xGK" firstAttribute="leading" secondItem="KDU-k5-Kih" secondAttribute="leadingMargin" id="QMC-qS-pDQ"/>
+                                                <constraint firstItem="cet-pT-ock" firstAttribute="top" secondItem="KDU-k5-Kih" secondAttribute="topMargin" constant="50" id="R1v-vA-yWe"/>
                                                 <constraint firstItem="He8-Q6-AXH" firstAttribute="top" secondItem="Ekb-4m-xGK" secondAttribute="bottom" constant="20" id="bbB-5t-Ifo"/>
                                                 <constraint firstItem="He8-Q6-AXH" firstAttribute="leading" secondItem="KDU-k5-Kih" secondAttribute="leading" constant="8" id="cIT-8O-edR"/>
                                                 <constraint firstAttribute="trailing" secondItem="Ekb-4m-xGK" secondAttribute="trailing" constant="8" id="chl-4l-YuU"/>
                                                 <constraint firstItem="Ekb-4m-xGK" firstAttribute="leading" secondItem="KDU-k5-Kih" secondAttribute="leading" constant="8" id="crf-ix-Bp6"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="cet-pT-ock" secondAttribute="trailing" id="ddz-46-4TK"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="cet-pT-ock" secondAttribute="trailing" id="kq9-2E-HlL"/>
+                                                <constraint firstItem="cet-pT-ock" firstAttribute="top" secondItem="KDU-k5-Kih" secondAttribute="topMargin" constant="50" id="oBf-Hd-pOJ"/>
                                             </constraints>
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -644,24 +660,11 @@
                                                 </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
                                         </view>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Arrive" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cet-pT-ock">
-                                            <rect key="frame" x="188" y="58" width="172" height="21"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="172" id="N4X-45-zUM"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="cet-pT-ock" firstAttribute="top" secondItem="B0Q-nG-6rr" secondAttribute="topMargin" constant="50" id="3KN-l5-X4g"/>
                                         <constraint firstItem="KDU-k5-Kih" firstAttribute="top" secondItem="B0Q-nG-6rr" secondAttribute="topMargin" constant="2" id="Bvb-vW-tEv"/>
                                         <constraint firstItem="KDU-k5-Kih" firstAttribute="leading" secondItem="B0Q-nG-6rr" secondAttribute="leadingMargin" id="LmX-q9-TX1"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="cet-pT-ock" secondAttribute="trailing" constant="7" id="Nsg-ZE-xh9"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="cet-pT-ock" secondAttribute="trailing" constant="7" id="cHW-dk-SOf"/>
                                         <constraint firstItem="KDU-k5-Kih" firstAttribute="centerY" secondItem="B0Q-nG-6rr" secondAttribute="centerY" id="gO3-qG-qmi"/>
-                                        <constraint firstItem="cet-pT-ock" firstAttribute="top" secondItem="B0Q-nG-6rr" secondAttribute="topMargin" constant="50" id="jbA-GJ-CFB"/>
                                         <constraint firstItem="KDU-k5-Kih" firstAttribute="trailing" secondItem="B0Q-nG-6rr" secondAttribute="trailingMargin" id="mKG-SG-afC"/>
                                     </constraints>
                                 </tableViewCellContentView>
