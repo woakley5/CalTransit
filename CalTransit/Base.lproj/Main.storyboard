@@ -468,14 +468,133 @@
                     <view key="view" contentMode="scaleToFill" id="BP4-QD-N1G">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" rotateEnabled="NO" pitchEnabled="NO" showsUserLocation="YES" showsPointsOfInterest="NO" showsTraffic="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PW9-rL-dSf">
+                                <rect key="frame" x="0.0" y="64" width="375" height="145"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="PW9-rL-dSf" secondAttribute="height" multiplier="75:29" id="5X8-9K-Jd7"/>
+                                </constraints>
+                            </mapView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="2vc-xX-H8q">
+                                <rect key="frame" x="0.0" y="209" width="375" height="409"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="busCell" rowHeight="135" id="BJz-kx-4X9" customClass="BusTableViewCell" customModule="CalTransit" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="135"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="BJz-kx-4X9" id="VN1-wF-ciQ">
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="134.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hJe-91-bbg">
+                                                    <rect key="frame" x="8" y="8" width="326" height="119"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Arrival Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5v9-ZG-OT1">
+                                                            <rect key="frame" x="22" y="37" width="290" height="21"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Predicted Delay" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nvN-IV-GbH">
+                                                            <rect key="frame" x="22" y="66" width="290" height="21"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last Updated" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uNx-KA-duj">
+                                                            <rect key="frame" x="22" y="95" width="290" height="21"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Route #" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mBy-Dy-2Bd">
+                                                            <rect key="frame" x="93" y="8" width="140" height="21"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="0.8149474344135802" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstItem="uNx-KA-duj" firstAttribute="top" secondItem="nvN-IV-GbH" secondAttribute="bottom" constant="8" symbolic="YES" id="6MO-PV-Vvr"/>
+                                                        <constraint firstItem="nvN-IV-GbH" firstAttribute="trailing" secondItem="uNx-KA-duj" secondAttribute="trailing" id="9Ak-99-fqE"/>
+                                                        <constraint firstItem="mBy-Dy-2Bd" firstAttribute="leading" secondItem="hJe-91-bbg" secondAttribute="leading" constant="93" id="CCi-Rc-Rg3"/>
+                                                        <constraint firstItem="5v9-ZG-OT1" firstAttribute="leading" secondItem="hJe-91-bbg" secondAttribute="leading" constant="22" id="Kdw-9S-geV"/>
+                                                        <constraint firstItem="mBy-Dy-2Bd" firstAttribute="centerX" secondItem="hJe-91-bbg" secondAttribute="centerX" id="fHS-fN-VNh"/>
+                                                        <constraint firstItem="nvN-IV-GbH" firstAttribute="leading" secondItem="uNx-KA-duj" secondAttribute="leading" id="kR5-wd-UcV"/>
+                                                        <constraint firstItem="mBy-Dy-2Bd" firstAttribute="top" secondItem="hJe-91-bbg" secondAttribute="topMargin" id="lbK-FE-hRS"/>
+                                                        <constraint firstItem="nvN-IV-GbH" firstAttribute="top" secondItem="5v9-ZG-OT1" secondAttribute="bottom" constant="8" symbolic="YES" id="n36-8r-FEp"/>
+                                                        <constraint firstAttribute="trailing" secondItem="5v9-ZG-OT1" secondAttribute="trailing" constant="14" id="nGl-0f-JD3"/>
+                                                        <constraint firstItem="5v9-ZG-OT1" firstAttribute="top" secondItem="mBy-Dy-2Bd" secondAttribute="bottom" constant="8" symbolic="YES" id="otl-KU-4I9"/>
+                                                        <constraint firstItem="5v9-ZG-OT1" firstAttribute="leading" secondItem="nvN-IV-GbH" secondAttribute="leading" id="w7X-dv-0Yg"/>
+                                                        <constraint firstItem="5v9-ZG-OT1" firstAttribute="trailing" secondItem="nvN-IV-GbH" secondAttribute="trailing" id="wzz-dM-Dig"/>
+                                                    </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                            <integer key="value" value="15"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="hJe-91-bbg" firstAttribute="centerY" secondItem="VN1-wF-ciQ" secondAttribute="centerY" id="6FK-Tz-vVv"/>
+                                                <constraint firstItem="hJe-91-bbg" firstAttribute="top" secondItem="VN1-wF-ciQ" secondAttribute="topMargin" id="KD2-NU-zH0"/>
+                                                <constraint firstItem="hJe-91-bbg" firstAttribute="trailing" secondItem="VN1-wF-ciQ" secondAttribute="trailingMargin" id="MED-ae-RwG"/>
+                                                <constraint firstItem="hJe-91-bbg" firstAttribute="leading" secondItem="VN1-wF-ciQ" secondAttribute="leadingMargin" id="yWj-No-Ep4"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <connections>
+                                            <outlet property="arriveTimeLabel" destination="5v9-ZG-OT1" id="Vpw-Gu-14m"/>
+                                            <outlet property="delayLabel" destination="nvN-IV-GbH" id="C6m-8U-zzP"/>
+                                            <outlet property="lastUpdatedLabel" destination="uNx-KA-duj" id="rgE-Dr-d1b"/>
+                                            <outlet property="routeLabel" destination="mBy-Dy-2Bd" id="WEL-NZ-KTP"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="2vc-xX-H8q" firstAttribute="bottom" secondItem="nnR-W9-2P5" secondAttribute="bottom" id="KRy-FY-fOA"/>
+                            <constraint firstItem="2vc-xX-H8q" firstAttribute="top" secondItem="PW9-rL-dSf" secondAttribute="bottom" id="Kev-Lb-ebL"/>
+                            <constraint firstItem="PW9-rL-dSf" firstAttribute="leading" secondItem="nnR-W9-2P5" secondAttribute="leading" id="MKy-X2-4F8"/>
+                            <constraint firstItem="PW9-rL-dSf" firstAttribute="top" secondItem="nnR-W9-2P5" secondAttribute="top" id="lCj-fT-Q7N"/>
+                            <constraint firstItem="2vc-xX-H8q" firstAttribute="trailing" secondItem="nnR-W9-2P5" secondAttribute="trailing" id="nH5-7f-iga"/>
+                            <constraint firstItem="2vc-xX-H8q" firstAttribute="leading" secondItem="nnR-W9-2P5" secondAttribute="leading" id="tnf-yA-0Ed"/>
+                            <constraint firstItem="PW9-rL-dSf" firstAttribute="trailing" secondItem="nnR-W9-2P5" secondAttribute="trailing" id="vdt-YM-FbU"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="nnR-W9-2P5"/>
                     </view>
-                    <navigationItem key="navigationItem" id="rBd-5A-Q6j"/>
+                    <navigationItem key="navigationItem" id="rBd-5A-Q6j">
+                        <barButtonItem key="backBarButtonItem" title="Stop" id="j0L-K0-scc"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="mapView" destination="PW9-rL-dSf" id="9AG-Ap-oH3"/>
+                        <outlet property="tableView" destination="2vc-xX-H8q" id="625-kt-RnF"/>
+                        <segue destination="O3K-48-d0H" kind="push" id="grL-3R-RQs"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yqE-Bz-iBx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2326" y="359"/>
+            <point key="canvasLocation" x="2325.5999999999999" y="358.4707646176912"/>
+        </scene>
+        <!--Bus Info-->
+        <scene sceneID="MZa-CP-3q6">
+            <objects>
+                <viewController id="O3K-48-d0H" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="vyc-x0-DUm">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="Hfk-OS-9lN"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Bus Info" id="NSO-YP-lSl"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="N1y-Oh-yDY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3124" y="358"/>
         </scene>
         <!--BearTransit-->
         <scene sceneID="iPC-Zl-NZs">

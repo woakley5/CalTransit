@@ -19,6 +19,7 @@ class ACTransitViewController: UIViewController, CLLocationManagerDelegate, MKMa
     var firstEntry = false
     
     var selectedStop: ACTransitStopAnnotation?
+    var stopIDs = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,6 +62,7 @@ class ACTransitViewController: UIViewController, CLLocationManagerDelegate, MKMa
         MKFullSpinner.show("Refreshing stops...")
         let searchRadius = 2000
         let url = "https://api.actransit.org/transit/stops/\(locationCoordinate.latitude)/\(locationCoordinate.longitude)/\(searchRadius)/?token=\(Constants.ACTransitAPIKey)"
+        self.stopIDs.removeAll()
         Alamofire.request(url).responseJSON { response in
             switch response.result {
             case .success(let value):
@@ -87,11 +89,14 @@ class ACTransitViewController: UIViewController, CLLocationManagerDelegate, MKMa
     }
     
     func addStopAnnotation(coord: CLLocationCoordinate2D, name: String, id: String){
-        let c = ACTransitStopAnnotation()
-        c.title = name
-        c.coordinate = coord
-        c.stopID = id
-        self.mapView.addAnnotation(c)
+        if(!self.stopIDs.contains(id)){
+            self.stopIDs.append(id)
+            let c = ACTransitStopAnnotation()
+            c.title = name.replacingOccurrences(of: ":", with: "/")
+            c.coordinate = coord
+            c.stopID = id
+            self.mapView.addAnnotation(c)
+        }
     }
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {

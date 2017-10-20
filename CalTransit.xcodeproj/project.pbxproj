@@ -11,6 +11,7 @@
 		6C117F3C1F8F2DCB00362A22 /* TripSegmentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C117F3B1F8F2DCB00362A22 /* TripSegmentTableViewCell.swift */; };
 		6C117F3E1F8F2E1C00362A22 /* TripSummaryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C117F3D1F8F2E1C00362A22 /* TripSummaryTableViewCell.swift */; };
 		6C117F401F8F346A00362A22 /* TransferTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C117F3F1F8F346A00362A22 /* TransferTableViewCell.swift */; };
+		6C5A94F81F9982AB001412FC /* BusTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5A94F71F9982AB001412FC /* BusTableViewCell.swift */; };
 		6C67268F1F8D988D00B9D5DF /* BearTransitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C67268E1F8D988D00B9D5DF /* BearTransitViewController.swift */; };
 		6C6726911F8DDDB700B9D5DF /* TripPlannerSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C6726901F8DDDB700B9D5DF /* TripPlannerSelectViewController.swift */; };
 		6C6726931F8DE2D500B9D5DF /* TripPlannerResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C6726921F8DE2D500B9D5DF /* TripPlannerResultViewController.swift */; };
@@ -58,6 +59,7 @@
 		6C117F3B1F8F2DCB00362A22 /* TripSegmentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripSegmentTableViewCell.swift; sourceTree = "<group>"; };
 		6C117F3D1F8F2E1C00362A22 /* TripSummaryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripSummaryTableViewCell.swift; sourceTree = "<group>"; };
 		6C117F3F1F8F346A00362A22 /* TransferTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferTableViewCell.swift; sourceTree = "<group>"; };
+		6C5A94F71F9982AB001412FC /* BusTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusTableViewCell.swift; sourceTree = "<group>"; };
 		6C67268E1F8D988D00B9D5DF /* BearTransitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BearTransitViewController.swift; path = "CalTransit/Bear Transit/BearTransitViewController.swift"; sourceTree = "<group>"; };
 		6C6726901F8DDDB700B9D5DF /* TripPlannerSelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripPlannerSelectViewController.swift; sourceTree = "<group>"; };
 		6C6726921F8DE2D500B9D5DF /* TripPlannerResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripPlannerResultViewController.swift; sourceTree = "<group>"; };
@@ -202,6 +204,7 @@
 				6CC2C5541F8C6B9F0067CFB3 /* ACTransitViewController.swift */,
 				6CE85C081F9977890060875A /* ACTransitStopAnnotation.swift */,
 				6CE85C0C1F9979DB0060875A /* ACTransitStopDetailViewController.swift */,
+				6C5A94F71F9982AB001412FC /* BusTableViewCell.swift */,
 			);
 			path = "AC Transit";
 			sourceTree = "<group>";
@@ -517,6 +520,7 @@
 				6C117F401F8F346A00362A22 /* TransferTableViewCell.swift in Sources */,
 				6C6726931F8DE2D500B9D5DF /* TripPlannerResultViewController.swift in Sources */,
 				6CC2C5511F8C6B9F0067CFB3 /* AppDelegate.swift in Sources */,
+				6C5A94F81F9982AB001412FC /* BusTableViewCell.swift in Sources */,
 				6CDA4AE31F8D80F1000EBDEC /* OtherStationsViewController.swift in Sources */,
 				6C67268F1F8D988D00B9D5DF /* BearTransitViewController.swift in Sources */,
 				6C117F3C1F8F2DCB00362A22 /* TripSegmentTableViewCell.swift in Sources */,

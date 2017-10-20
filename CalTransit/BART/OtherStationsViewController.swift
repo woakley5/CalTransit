@@ -145,6 +145,7 @@ class OtherStationsViewController: UIViewController, UITableViewDelegate, UITabl
         }
         
         cell.coloredBackgroundView.backgroundColor = Constants.hexStringToUIColor(hex: upcomingTrains[indexPath.row]["estimate"][0]["hexcolor"].stringValue)
+        cell.isUserInteractionEnabled = false
         return cell
     
     }
