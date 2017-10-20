@@ -7,7 +7,25 @@
 		<key>CalTransit.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>0</integer>
+			<integer>1</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>6CC2C54C1F8C6B9F0067CFB3</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>6CC2C5621F8C6BA00067CFB3</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>6CC2C56D1F8C6BA00067CFB3</key>
+		<dict>
+			<key>primary</key>
+			<true/>
 		</dict>
 	</dict>
 </dict>

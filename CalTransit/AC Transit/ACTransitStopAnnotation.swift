@@ -2,7 +2,7 @@
 //  ACTransitStopAnnotation.swift
 //  CalTransit
 //
-//  Created by Will Oakley on 10/18/17.
+//  Created by Will Oakley on 10/19/17.
 //  Copyright © 2017 Will Oakley. All rights reserved.
 //
 
@@ -12,14 +12,13 @@ import MapKit
 class ACTransitStopAnnotation: NSObject, MKAnnotation {
     
     var coordinate: CLLocationCoordinate2D
+    var stopID: String?
     var title: String?
-    var id: Int
     
-    init(stopId: Int, stopTitle: String, coord: CLLocationCoordinate2D) {
-        self.id = stopId
-        self.title = stopTitle
-        self.coordinate = coord
-        super.init()
+    override init() {
+        self.coordinate = CLLocationCoordinate2D()
+        self.title = nil
+        self.stopID = nil
     }
     
 }

@@ -11,13 +11,14 @@ import MapKit
 import Alamofire
 import SwiftyJSON
 import MKSpinner
-import SwiftBus
 
 class ACTransitViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
 
     @IBOutlet weak var mapView: MKMapView!
     let locationManager = CLLocationManager()
     var firstEntry = false
+    
+    var selectedStop: ACTransitStopAnnotation?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,8 +60,7 @@ class ACTransitViewController: UIViewController, CLLocationManagerDelegate, MKMa
         firstEntry = false
         MKFullSpinner.show("Refreshing stops...")
         let searchRadius = 2000
-        let url = "https://api.actransit.org/transit/stops/\(locationCoordinate.latitude)/\(locationCoordinate.longitude)/\(searchRadius)/?token=FF2AA022BCE64E2605DDA817CB624012"
-        print(url)
+        let url = "https://api.actransit.org/transit/stops/\(locationCoordinate.latitude)/\(locationCoordinate.longitude)/\(searchRadius)/?token=\(Constants.ACTransitAPIKey)"
         Alamofire.request(url).responseJSON { response in
             switch response.result {
             case .success(let value):
@@ -68,7 +68,7 @@ class ACTransitViewController: UIViewController, CLLocationManagerDelegate, MKMa
                 print(json)
                 for i in 0 ..< json.count {
                     let coordinate = CLLocationCoordinate2DMake(json[i]["Latitude"].doubleValue, json[i]["Longitude"].doubleValue)
-                    self.addStopAnnotation(coord: coordinate, name: json[i]["Name"].stringValue)
+                    self.addStopAnnotation(coord: coordinate, name: json[i]["Name"].stringValue, id: json[i]["StopId"].stringValue)
                 }
                 MKFullSpinner.hide()
             case .failure(let error):
@@ -86,16 +86,56 @@ class ACTransitViewController: UIViewController, CLLocationManagerDelegate, MKMa
         getNearestStops(locationCoordinate: (self.locationManager.location?.coordinate)!)
     }
     
-    func addStopAnnotation(coord: CLLocationCoordinate2D, name: String){
-        let c = MKPointAnnotation()
+    func addStopAnnotation(coord: CLLocationCoordinate2D, name: String, id: String){
+        let c = ACTransitStopAnnotation()
         c.title = name
         c.coordinate = coord
+        c.stopID = id
         self.mapView.addAnnotation(c)
     }
     
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+
+        if annotation is ACTransitStopAnnotation {
+            let a = annotation as! ACTransitStopAnnotation
+            if let annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: "Stop") {
+                annotationView.annotation = annotation
+                return annotationView
+            } else {
+                let annotationView = MKPinAnnotationView(annotation:annotation, reuseIdentifier: a.stopID)
+                annotationView.isEnabled = true
+                annotationView.canShowCallout = true
+                
+                let btn = UIButton(type: .detailDisclosure)
+                annotationView.rightCalloutAccessoryView = btn
+                return annotationView
+            }
+        }
+        
+        return nil
+    }
+    
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
-        print("Selected an annotation!")
+        if(view.annotation!.isKind(of: MKUserLocation.self))
+        {
+            return
+        }
+        else{
+            selectedStop = (view.annotation as! ACTransitStopAnnotation)
+        }
+    }
+    
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        self.performSegue(withIdentifier: "showStopDetails", sender: self)
     }
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if let destinationViewController = segue.destination as? ACTransitStopDetailViewController {
+            destinationViewController.stopID = selectedStop?.stopID
+            destinationViewController.stopName = selectedStop?.title
+            destinationViewController.stopCoordinate = selectedStop?.coordinate
+        }
+    }
 }
 

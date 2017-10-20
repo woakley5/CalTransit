@@ -58,6 +58,8 @@ class TripPlannerSelectViewController: UIViewController, UIPickerViewDelegate, U
                 self.arrivePicker.selectRow(0, inComponent: 0, animated: false)
                 self.pickerView(self.departPicker, didSelectRow: 0, inComponent: 0)
                 self.pickerView(self.arrivePicker, didSelectRow: 0, inComponent: 0)
+                self.datePicker.date = Date()
+
                 MKFullSpinner.hide()
                 
             case .failure(let error):
@@ -93,9 +95,7 @@ class TripPlannerSelectViewController: UIViewController, UIPickerViewDelegate, U
     
     
     @IBAction func searchForTrip(_ sender: Any) {
-        
         self.performSegue(withIdentifier: "showTripDetails", sender: self)
-
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -110,7 +110,6 @@ class TripPlannerSelectViewController: UIViewController, UIPickerViewDelegate, U
             
             let timeFormatter = DateFormatter()
             timeFormatter.dateFormat = "hh:mm+a"
-            
             
             destinationViewController.date = dateFormatter.string(from: datePicker.date)
             destinationViewController.time = timeFormatter.string(from: datePicker.date)

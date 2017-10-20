@@ -445,6 +445,7 @@
                         <viewLayoutGuide key="safeArea" id="c9j-wY-e30"/>
                     </view>
                     <navigationItem key="navigationItem" title="AC Transit" id="2qa-jt-ig7">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="ESs-X2-610"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="V6V-52-UIw">
                             <connections>
                                 <action selector="refreshStops:" destination="QRb-gj-AKG" id="Jna-Mt-hzw"/>
@@ -453,11 +454,28 @@
                     </navigationItem>
                     <connections>
                         <outlet property="mapView" destination="lNF-Th-35z" id="fmQ-y2-srE"/>
+                        <segue destination="gI2-lZ-t2o" kind="push" identifier="showStopDetails" id="1Ib-YM-827"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="adL-Tz-iL5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1488.8" y="357.57121439280365"/>
+        </scene>
+        <!--Transit Stop Detail View Controller-->
+        <scene sceneID="ICY-hG-MBA">
+            <objects>
+                <viewController id="gI2-lZ-t2o" customClass="ACTransitStopDetailViewController" customModule="CalTransit" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="BP4-QD-N1G">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="nnR-W9-2P5"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="rBd-5A-Q6j"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yqE-Bz-iBx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2326" y="359"/>
         </scene>
         <!--BearTransit-->
         <scene sceneID="iPC-Zl-NZs">
