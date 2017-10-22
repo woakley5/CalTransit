@@ -17,12 +17,12 @@ class ACTransitStopDetailViewController: UIViewController, UITableViewDelegate, 
     var stopID: String?
     var stopName: String?
     var stopCoordinate: CLLocationCoordinate2D?
-    var upcomingBuses: JSON!
+
+    var loadedBuses = [Int]()
+    var loadedBusData = [JSON]()
     
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var tableView: UITableView!
-    
-    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,7 +57,14 @@ class ACTransitStopDetailViewController: UIViewController, UITableViewDelegate, 
             case .success(let value):
                 let json = JSON(value)
                 print(json)
-                self.upcomingBuses = json
+                self.loadedBuses.removeAll()
+                self.loadedBusData.removeAll()
+                for i in 0 ..< json.count {
+                    if(!self.loadedBuses.contains(json[i]["TripId"].intValue)){
+                        self.loadedBuses.append(json[i]["TripId"].intValue)
+                        self.loadedBusData.append(json[i])
+                    }
+                }
                 self.tableView.reloadData()
                 MKFullSpinner.hide()
                 
@@ -74,11 +81,11 @@ class ACTransitStopDetailViewController: UIViewController, UITableViewDelegate, 
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if(upcomingBuses == nil){
+        if(loadedBusData == nil){
             return 0
         }
         else{
-            return upcomingBuses.count
+            return loadedBuses.count
         }
     }
     
@@ -89,12 +96,11 @@ class ACTransitStopDetailViewController: UIViewController, UITableViewDelegate, 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell:BusTableViewCell = self.tableView.dequeueReusableCell(withIdentifier:"busCell", for: indexPath) as! BusTableViewCell
         //print(upcomingBuses)
-        cell.routeLabel.text = "Route " + upcomingBuses[indexPath.row]["RouteName"].stringValue
-        cell.arriveTimeLabel.text = "Arriving at: " + upcomingBuses[indexPath.row]["PredictedDeparture"].stringValue
-        cell.delayLabel.text = "Delay of: " + upcomingBuses[indexPath.row]["PredictedDelayInSeconds"].stringValue
-        cell.lastUpdatedLabel.text = "Last Updated: " + upcomingBuses[indexPath.row]["PredictionDateTime"].stringValue
-        cell.vehicleId = upcomingBuses[indexPath.row]["VehicleId"].stringValue
-        cell.isUserInteractionEnabled = false
+        cell.routeLabel.text = "Route " + loadedBusData[indexPath.row]["RouteName"].stringValue
+        cell.arriveTimeLabel.text = "Arriving at: " + loadedBusData[indexPath.row]["PredictedDeparture"].stringValue
+        cell.delayLabel.text = "Delay of: " + loadedBusData[indexPath.row]["PredictedDelayInSeconds"].stringValue
+        cell.lastUpdatedLabel.text = "Last Updated: " + loadedBusData[indexPath.row]["PredictionDateTime"].stringValue
+        cell.vehicleId = loadedBusData[indexPath.row]["VehicleId"].stringValue
         return cell
     }
     
