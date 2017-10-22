@@ -20,6 +20,7 @@ class ACTransitStopDetailViewController: UIViewController, UITableViewDelegate, 
 
     var loadedBuses = [Int]()
     var loadedBusData = [JSON]()
+    var selectedBus: String!
     
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var tableView: UITableView!
@@ -105,11 +106,20 @@ class ACTransitStopDetailViewController: UIViewController, UITableViewDelegate, 
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("Selected something!")
+        let selectedCell = tableView.cellForRow(at: indexPath) as! BusTableViewCell
+        print("Selected bus " + selectedCell.vehicleId)
+        selectedBus = selectedCell.vehicleId
+        self.performSegue(withIdentifier: "showBusInfo", sender: self)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 135
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destinationViewController = segue.destination as? ACTransitBusInfoViewController {
+            destinationViewController.busID = selectedBus
+        }
     }
 
 }

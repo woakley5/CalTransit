@@ -479,7 +479,7 @@
                                 <rect key="frame" x="0.0" y="209" width="375" height="409"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="busCell" rowHeight="135" id="BJz-kx-4X9" customClass="BusTableViewCell" customModule="CalTransit" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="busCell" rowHeight="135" id="BJz-kx-4X9" customClass="BusTableViewCell" customModule="CalTransit" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="135"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="BJz-kx-4X9" id="VN1-wF-ciQ">
@@ -573,7 +573,7 @@
                     <connections>
                         <outlet property="mapView" destination="PW9-rL-dSf" id="9AG-Ap-oH3"/>
                         <outlet property="tableView" destination="2vc-xX-H8q" id="625-kt-RnF"/>
-                        <segue destination="O3K-48-d0H" kind="push" id="grL-3R-RQs"/>
+                        <segue destination="O3K-48-d0H" kind="push" identifier="showBusInfo" id="grL-3R-RQs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yqE-Bz-iBx" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -583,18 +583,38 @@
         <!--Bus Info-->
         <scene sceneID="MZa-CP-3q6">
             <objects>
-                <viewController id="O3K-48-d0H" sceneMemberID="viewController">
+                <viewController id="O3K-48-d0H" customClass="ACTransitBusInfoViewController" customModule="CalTransit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="vyc-x0-DUm">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="satellite" pitchEnabled="NO" showsUserLocation="YES" showsBuildings="NO" showsPointsOfInterest="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x7R-Jq-I5z">
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                            </mapView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="x7R-Jq-I5z" firstAttribute="leading" secondItem="vyc-x0-DUm" secondAttribute="leading" id="DVG-bg-rgC"/>
+                            <constraint firstAttribute="trailing" secondItem="x7R-Jq-I5z" secondAttribute="trailing" id="Naa-yv-FTp"/>
+                            <constraint firstItem="x7R-Jq-I5z" firstAttribute="top" secondItem="Hfk-OS-9lN" secondAttribute="top" id="YE5-Ds-LdV"/>
+                            <constraint firstItem="x7R-Jq-I5z" firstAttribute="bottom" secondItem="Hfk-OS-9lN" secondAttribute="bottom" id="r43-7d-fXd"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Hfk-OS-9lN"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Bus Info" id="NSO-YP-lSl"/>
+                    <navigationItem key="navigationItem" title="Bus Info" id="NSO-YP-lSl">
+                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="93t-J0-EZa">
+                            <connections>
+                                <action selector="refreshBusLocation:" destination="O3K-48-d0H" id="qSg-DT-NnU"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="mapView" destination="x7R-Jq-I5z" id="3rq-EB-gyQ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N1y-Oh-yDY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3124" y="358"/>
+            <point key="canvasLocation" x="3124" y="357.57121439280365"/>
         </scene>
         <!--BearTransit-->
         <scene sceneID="iPC-Zl-NZs">
