@@ -3,4 +3,4 @@ An iOS app that curates transit data from the major transportation providers at 
 
 * BART - https://api.bart.gov/docs/overview/index.aspx
 * AC Transit - http://api.actransit.org/transit
-* BearTransit - https://www.nextbus.com/xmlFeedDocs/NextBusXMLFeed.pdf
+* BearTransit -http://docs.beartransit.apiary.io/

@@ -19,6 +19,9 @@ class Constants{
     static let ACTransitAPIKey = "FF2AA022BCE64E2605DDA817CB624012"
     static var ACTransitStopInfo = [String: String]()
     
+    //BearTransit Stuff
+    
+    
     //Converts bart hex color to UIColor
     static func hexStringToUIColor (hex:String) -> UIColor {
         var cString:String = hex.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
@@ -40,5 +43,15 @@ class Constants{
             blue: CGFloat(rgbValue & 0x0000FF) / 255.0,
             alpha: CGFloat(1.0)
         )
+    }
+}
+
+extension Date {
+    var millisecondsSince1970:Int {
+        return Int((self.timeIntervalSince1970 * 1000.0).rounded())
+    }
+    
+    init(milliseconds:Int) {
+        self = Date(timeIntervalSince1970: TimeInterval(milliseconds / 1000))
     }
 }
